@@ -1,0 +1,43 @@
+﻿@model List<Activity2Part1.Models.UserModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+
+    <style>
+        .label1{ font-size: 24px; font-family: Arial; font-weight: bold; display: block; text-align: center; }
+        .label2 { display: block; font-family: Arial; font-size: 18px; font-weight: bold; text-align: left; }
+    </style>
+</head>
+<body>
+    <div>
+        @Html.Label("Welcome to Razor", new { @class = "label1" })
+        <br />
+        @Html.Label("My Customers are:", new { @class = "label2" })
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+            </tr>
+            @foreach(var u in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => @u.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => @u.EmailAddress)</td>
+                    <td>@Html.DisplayFor(modelItem => @u.PhoneNumber)</td>
+                </tr>
+            }
+        </table>
+
+        @Html.ActionLink("Refresh Page", "../test")
+    </div>
+</body>
+</html>
